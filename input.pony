@@ -1,12 +1,13 @@
 use "collections"
 
-actor Input[TYPE]
-  var value: TYPE
-  var owner: Block tag
+actor Input[TYPE: Any val]
+  var _value: TYPE
+  var _owner: Block tag
   
-  new create() =>
-    value = None
+  new create(owner: Block tag, initialValue: TYPE) =>
+    _owner = owner
+    _value = initialValue
     
 
-  be set( newValue: TYPE ) =>
-    value = newValue
+  be set( newValue: TYPE val ) =>
+    _value = newValue
