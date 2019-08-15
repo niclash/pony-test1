@@ -1,18 +1,5 @@
 use "collections"
 
-actor Counter
-  var _count: U32
-
-  new create() =>
-    _count = 0
-
-  be increment() =>
-    _count = _count + 1
-
-  be get_and_reset(main: Main) =>
-    main.display(_count)
-    _count = 0
-
 actor Main
   var _env: Env
 
