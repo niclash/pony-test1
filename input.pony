@@ -1,13 +1,11 @@
-use "collections"
-
-actor Input[TYPE: Any val]
+class Input[TYPE: Any val]
   var _value: TYPE
-  var _owner: Block tag
-  
-  new create(owner: Block tag, initialValue: TYPE) =>
-    _owner = owner
-    _value = initialValue
-    
 
-  be set( newValue: TYPE val ) =>
-    _value = newValue
+  new create(initialValue: TYPE) =>
+    _value = consume initialValue
+
+  fun ref set( newValue: TYPE) =>
+    _value = consume newValue
+
+  fun value() : this->TYPE =>
+    _value
