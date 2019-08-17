@@ -1,9 +1,9 @@
 
 class Link[TYPE: Any val]
   let block: Block tag
-  let input: Input[TYPE] tag
+  let input: String val
   
-  new create( destBlock: Block tag, destInput: Input[TYPE] tag) =>
+  new create( destBlock: Block tag, destInput: String val) =>
     block = destBlock
     input =  destInput
     
