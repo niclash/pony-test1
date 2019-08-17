@@ -15,6 +15,9 @@ class InputImpl[TYPE: Any val]
     _value = consume initialValue
     _log = logger
 
+  fun value() : this->TYPE =>
+    _value
+
   fun ref set( newValue: TYPE) =>
     match newValue
     |
@@ -24,5 +27,3 @@ class InputImpl[TYPE: Any val]
     end
     _value = consume newValue
 
-  fun value() : this->TYPE =>
-    _value

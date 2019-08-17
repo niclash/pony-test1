@@ -18,6 +18,9 @@ class OutputImpl[TYPE: Any val]
     _dest = List[Link[TYPE] val]
     _log = logger
 
+  fun value() : this->TYPE =>
+    _value
+    
   fun ref set( newValue: TYPE val ) =>
     match newValue
     |
@@ -29,9 +32,6 @@ class OutputImpl[TYPE: Any val]
     end
     _value = newValue
 
-  fun value() : this->TYPE =>
-    _value
-    
   fun ref connect(destBlock: Block tag, input: String val) =>
     _log(Fine) and _log.log( _name + " connect to " + input )
     var link:Link[TYPE] val = recover Link[TYPE](destBlock, input) end
